@@ -28,7 +28,8 @@ jobs:
         run: GOARCH="${TARGET}" go build ./cmd/sriov/...
 
       - name: Go test
-        run: sudo go test ./... # sudo needed for netns change in test
+        # Exclude E2E tests - requires self hosted server with hardware to be executed correctly
+        run: sudo go test ./pkg/... # sudo needed for netns change in test
 
   coverage:
     runs-on: ubuntu-latest
