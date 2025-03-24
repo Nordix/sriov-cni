@@ -56,7 +56,7 @@ func LoadConf(bytes []byte) (*sriovtypes.NetConf, error) {
 	logging.Debug("Acquired device lock",
 		"func", "LoadConf",
 		"DeviceID", n.DeviceID)
-	
+
 	// Check if the device is already allocated.
 	// This is to prevent issues where kubelet request to delete a pod and in the same time a new pod using the same
 	// vf is started. we can have an issue where the cmdDel of the old pod is called AFTER the cmdAdd of the new one
